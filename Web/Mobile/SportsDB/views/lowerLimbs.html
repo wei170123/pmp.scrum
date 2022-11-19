@@ -1,0 +1,31 @@
+﻿<ion-view title="下肢運動">
+    <ion-content>
+
+        <ion-list>
+            <!-- <ion-item ng-repeat="sports in llCtrl.sports track by $index">
+                <ion-checkbox value={{sports.sportsName}} ng-model="llCtrl.checkedList[$index]" ng-click="llCtrl.boxClick(llCtrl.checkedList[$index], sports)">{{sports.sportsName}}</ion-checkbox>
+            </ion-item> -->
+            <ion-item ng-repeat="sports in llCtrl.sports track by $index" class="button-right">
+                <div class="item item-checkbox item-button-right">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="llCtrl.checkedList[$index]" ng-click="llCtrl.boxClick(llCtrl.checkedList[$index], sports, $index)">
+                    </label>
+                    <font color="＃000000">{{sports.sportsName}}</font>
+
+                    <button class="button button-outline button-stable" ng-click="imgShow = !imgShow" style="z-index:4">
+                        <!-- <font color="#888888">Details</font> -->
+                        <i class="ion-information-circled"></i>
+                    </button>
+                </div>
+
+                <ion-slide-box>
+                    <ion-slide ng-repeat="img in sports.referenceId" ng-show="imgShow">
+                        <img ng-src={{img.resourcePath}} width="100%"></img>
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+        </ion-list>
+        <!-- <button ion-button round outline ng-click="llCtrl.confirm()">確認</button> -->
+        <button class="button button-block button-dark" ng-click="llCtrl.confirm()">確認</button>
+    </ion-content>
+</ion-view>

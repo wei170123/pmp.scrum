@@ -1,0 +1,206 @@
+#slogan{
+   width:500px
+}
+
+#index1{
+   width:100%;
+   height:70%;
+   /* padding-left:auto;
+   padding-right:100px; */
+   display: block;
+  margin: 0px auto;
+}
+
+#leftQRcode{
+   padding-right: 10vw;
+}
+
+#rightQRcode{
+   padding-top: 50px;
+   padding-left: 0px;
+   padding-right: 0px;
+   padding-bottom: 0px;
+}
+
+#qrcode{
+   padding-top:5px;
+   padding-right: 4px;
+    padding-left: 4px;
+}
+
+#qrcodeText{
+   padding-top:10px;
+   padding-bottom:10px;
+   /* padding-left:90px; */
+   border-top: 1px solid white;
+   border-bottom: 1px solid white;
+   margin-top:2vh;
+}
+
+body {
+  overflow-x:hidden
+}
+
+.welcome-text{
+   width:110%;
+}
+
+#articleCarousel {
+   width: 120%;
+   padding-right: 5vw;
+}
+
+#doserivcePage{
+   padding-top:10vh;
+}
+
+#leftTop{
+   width:350px;
+   height:500px;
+}
+
+#leftBottom{
+   width:350px;
+   height:250px;
+}
+
+#rightTop{
+   width:730px;
+   height:240px;
+}
+
+#rightBottom{
+   width:730px;
+   height:510px;
+}
+
+.mobileType{
+   display:none;
+}
+
+.personalServiceWhiteArea{
+   width:100%;
+   height:5vh;
+   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+   /* 如果使用者視窗寬度 <= 768px，將字體大小變為 20px */
+   .normalType{
+      display:none
+   }
+
+   .mobileType{
+      display:block;
+   }
+
+   #doserivcePage{
+      padding-top:0vh;
+   }
+
+   #qrcodeSlogan{
+      font-size:25px !important;
+   }
+   
+   #articleCarousel {
+      height: 300px;
+      width:100%;
+      padding-right: 0vw;
+   }
+
+   #header #logo img {
+      max-height: 40px;
+  }
+
+  #newest{
+     padding-top:70px;
+     padding-bottom:20px;
+  }
+
+  #slogan{
+     width:350px
+  }
+
+  #newestArticle{
+   padding-bottom:0px;
+  }
+
+  .welcome-text{
+   width:100%;
+  }  
+
+  #welcomeTitle{
+     font-size: 20px;
+  }
+
+  #qrcode{
+   padding-top:0px;
+   padding-left:0px;
+   padding-right:0px;
+   }
+
+   #rightQRcode{
+      padding-right: 0px;
+   }
+
+   .navIcon{
+      width:90px;
+      height:90px;
+   }
+
+   #mobile-nav-toggle i {
+      /* width:90px;
+      height:90px; */
+      color:white;
+   }
+
+   #mobile-nav ul li a{
+      color:#0B386D;
+      font-size:16px;
+   }
+   #mobile-nav ul li a:hover{
+      color:#4F3533;
+   }
+
+   #leftQRcode{
+      padding-right: 0px;
+   }
+
+   #leftTop{
+      /* width:350px;
+      height:500px; */
+      width:100%;
+   }
+   
+   #leftBottom{
+      /* width:350px;
+      height:250px; */
+      width:100%;
+   }
+   
+   #rightTop{
+      width:100%;
+      /* height:240px; */
+   }
+   
+   #rightBottom{
+      width:100%;
+      /* height:510px; */
+   }
+
+   #doserviceDiv{
+      padding-top:7vh; 
+   }
+
+   #teamLogo{
+      height:40px;
+      width:45%;
+   }
+
+   .personalServiceWhiteArea{
+      width:100%;
+      height:0vh;
+      background-color: white;
+   }
+}

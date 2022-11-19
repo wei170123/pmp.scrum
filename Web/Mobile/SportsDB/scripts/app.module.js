@@ -1,0 +1,1 @@
+﻿angular.module('ptLineBot_SportsDB', ['ionic']);

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<link rel="stylesheet" href="../plugins/css/fontStyle.css">
+
+	<!-- customized style -->
+	<style>
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+			font-size: 16px;
+		}
+
+		html,
+		body,
+		.container,
+		.row {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.container {
+			max-width: 100%;
+		}
+
+		button {
+			font-size: 16px;
+		}
+
+		.half {
+			position: fixed;
+			margin: 0;
+			width: 50% !important;
+			height: 100%;
+		}
+
+		.bg {
+			background: url('../plugins/images/contact-bg.jpg') center center;
+			background-size: cover;
+		}
+
+		.form {
+			left: 50%;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		h1,
+		form {
+			width: 100%;
+		}
+
+		h1 {
+			padding-top: 16px;
+			text-align: center;
+		}
+
+		form {
+			margin-right: auto;
+			margin-left: auto;
+			max-width: 400px;
+		}
+
+		.input-group {
+			margin-bottom: 30px;
+		}
+
+		.radio-group label {
+			display: inline-block;
+		}
+
+		textarea {
+			min-height: 100px;
+		}
+
+		@media screen and (max-width: 768px) {
+			.half {
+				position: static;
+				width: 100% !important;
+				height: auto;
+			}
+
+			.bg {
+				height: 350px;
+			}
+
+			form {
+				padding-right: 12px;
+				padding-left: 12px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<main class="row">
+			<!-- bg -->
+			<section class="six columns half bg" id="bg"></section>
+
+			<!-- form -->
+			<section class="six columns half form" id="cForm">
+				<h1>聯絡交流</h1>
+
+				<form>
+					<!-- 稱呼 -->
+					<div class="input-group">
+						<label for="name">稱呼</label>
+						<input class="u-full-width" type="text" placeholder="稱呼" id="name">
+					</div>
+
+					<!-- 聯絡信箱 -->
+					<div class="input-group">
+						<label for="email">聯絡信箱</label>
+						<input class="u-full-width" type="text" placeholder="test@gmail.com" id="email">
+					</div>
+
+					<!-- 性別 -->
+					<div class="input-group">
+						<label>性別</label>
+						<div class="radio-group row">
+							<!-- 男性 -->
+							<div class="four columns">
+								<input type="radio" id="male" name="demo_radio" value="男" checked>
+								<label for="male">男性</label>
+							</div>
+
+							<!-- 女性 -->
+							<div class="four columns">
+								<input type="radio" id="female" name="demo_radio" value="女">
+								<label for="female">女性</label>
+							</div>
+
+							<!-- 法人 -->
+							<!-- <div class="four columns">
+								<input type="radio" id="legal" name="demo_radio" value="legal">
+								<label for="legal">法人</label>
+							</div> -->
+						</div>
+					</div>
+
+					<!-- 詢問類別 -->
+					<div class="input-group">
+						<label for="demo_select">詢問類別</label>
+						<select class="u-full-width" id="demo_select">
+							<!-- <option value="0" selected disabled>請選擇</option> -->
+							<option value="personal" selected>個人諮詢</option>
+							<option value="cooperate">合作洽詢</option>
+							<option value="article">文章交流</option>
+							<option value="system">系統建議</option>
+						</select>
+					</div>
+
+					<!-- 個人諮詢 -->
+					<div class="input-group" id="personal">
+						<label for="personal_consult">個人諮詢</label>
+						<textarea class="u-full-width" id="personal_consult"></textarea>
+					</div>
+
+					<!-- 合作洽詢 -->
+					<div class="input-group" id="cooperate" style="display:none;">
+						<label for="cooperate_consult">合作洽詢</label>
+						<textarea class="u-full-width" id="cooperate_consult"></textarea>
+					</div>
+
+					<!-- 文章交流 -->
+					<div class="input-group" id="article" style="display:none;">
+						<label for="article_advise">文章交流</label>
+						<textarea class="u-full-width" id="article_advise"></textarea>
+					</div>
+
+					<!-- 系統建議 -->
+					<div class="input-group" id="system" style="display:none;">
+						<label for="system_advise">系統建議</label>
+						<textarea class="u-full-width" id="system_advise"></textarea>
+					</div>
+
+					<button type="button" id="submit" class="button-primary u-full-width">確認送出</button>
+					<!-- <button type="submit" name="button" value="submit">送出</button> -->
+				</form>
+			</section>
+		</main>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function () {
+			$('#demo_select').change(function () {
+				var selected = $(this).find("option:selected").attr('value');
+
+				if (selected == 'personal') {
+					$('#personal').css("display", "");
+					$('#cooperate').css("display", "none");
+					$('#article').css("display", "none");
+					$('#system').css("display", "none");
+				}
+				else if (selected == 'cooperate') {
+					$('#personal').css("display", "none");
+					$('#cooperate').css("display", "");
+					$('#article').css("display", "none");
+					$('#system').css("display", "none");
+				}
+				else if (selected == 'article') {
+					$('#personal').css("display", "none");
+					$('#cooperate').css("display", "none");
+					$('#article').css("display", "");
+					$('#system').css("display", "none");
+				}
+				else if (selected == 'system') {
+					$('#personal').css("display", "none");
+					$('#cooperate').css("display", "none");
+					$('#article').css("display", "none");
+					$('#system').css("display", "");
+				}
+			});
+
+
+			$('#submit').on('click', function () {
+
+				// 稱呼
+				var name = $('#name').val();
+				// 信箱
+				var email = $('#email').val();
+				// 性別
+				var sex = function () {
+					var v;
+					$('[name="demo_radio"]').each(function () {
+						if ($(this).prop('checked') === true) v = $(this).val();
+					});
+					return v;
+				};
+				// 個人諮詢
+				var personal_consult = $('#personal_consult').val() || '未填寫';
+				// 合作洽詢
+				var cooperate_consult = $('#cooperate_consult').val() || '未填寫';
+				// 文章交流
+				var article_advise = $('#article_advise').val() || '未填寫';
+				// 系統建議
+				var system_advise = $('#system_advise').val() || '未填寫';
+				// post
+				var data = {
+					'entry.1787218558': name,
+					'entry.989994753': email,
+					'entry.480276830': sex(),
+					'entry.273877608': personal_consult,
+					'entry.973384007': cooperate_consult,
+					'entry.1755535030': article_advise,
+					'entry.1038375326': system_advise
+				};
+				console.log(data);
+
+				if (!name) {
+					alert("麻煩填寫您的稱呼!");
+					return;
+				}
+				if (!email) {
+					alert("麻煩填寫您的電子信箱!");
+					return;
+				}
+
+				$.ajax({
+					type: 'POST',
+					url: 'https://docs.google.com/forms/d/e/1FAIpQLSc8jT2dgj6VL6VwAcvuT4N7s7uqVplqJAdL3HR9OL3qT0sv7Q/formResponse',
+					data: data,
+					contentType: 'application/json',
+					dataType: 'jsonp',
+					complete: function () {
+						alert('資料已送出！');
+						window.location.reload();
+					}
+				});
+
+			});
+		});
+	</script>
+
+</body>
+
+</html>

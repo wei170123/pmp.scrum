@@ -1,0 +1,29 @@
+﻿<ion-view title="自訂運動">
+    <ion-content>
+
+        <ion-list>
+            <ion-item ng-repeat="sports in ssCtrl.sports track by $index" class="button-right">
+                <div class="item item-checkbox item-button-right">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="ssCtrl.checkedList[$index]" ng-click="ssCtrl.boxClick(ssCtrl.checkedList[$index], sports, $index)">
+                    </label>
+                    <font color="＃000000">{{sports.sportsName}}</font>
+
+                    <button class="button button-outline button-stable" ng-click="imgShow = !imgShow" style="z-index:4">
+
+                        <i class="ion-information-circled"></i>
+                    </button>
+                </div>
+
+                <ion-slide-box>
+                    <ion-slide ng-repeat="img in sports.referenceId" ng-show="imgShow">
+                        <img ng-src={{img.resourcePath}} width="100%"></img>
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+        </ion-list>
+
+        <button class="button button-block button-dark" ng-click="ssCtrl.confirm()">確認</button>
+        <!-- <button class="button button-block button-dark" ng-click="ssCtrl.create()">自訂運動</button> -->
+    </ion-content>
+</ion-view>

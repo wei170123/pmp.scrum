@@ -1,0 +1,52 @@
+/* Your custom css code goes here */
+
+.head{
+    font-size: 80px;
+}
+
+.headingContent{
+    font-size: 25px;
+}
+
+h1{
+    font-size: 23px;
+}
+
+#bottomImgMobile{
+    display: none;
+}
+
+#position{
+    position:absolute; 
+    bottom:0;
+}
+
+@media screen and (max-width: 991px) {
+    .head{
+        font-size: 30px;
+    }
+    
+    .headingContent{
+        font-size: 18px;
+    }
+    
+    h1{
+        font-size: 1.1em;
+    }
+
+    #normal{
+        text-align: center;
+    }
+
+    #bottomImgNormal{
+        display: none;
+    }
+
+    #bottomImgMobile{
+        display: inline;        
+    }
+
+    #position{
+        position:static;
+    }
+}
